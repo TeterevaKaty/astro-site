@@ -1,0 +1,27 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Card from "../components/Card.astro";
+
+const projects = [
+  { title: "Store website", text: "E-commerce project" },
+  { title: "Landing page", text: "Landing page for the product" },
+  { title: "Portfolio", text: "Personal website" }
+];
+---
+
+<Layout>
+
+<h1>Мои проекты</h1>
+
+{projects.map(project => (
+  <Card title={project.title} text={project.text} />
+))}
+
+</Layout>
+<style>
+.grid{
+  display:grid;
+  grid-template-columns: repeat(3,1fr);
+  gap:20px;
+}
+</style>

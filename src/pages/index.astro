@@ -1,11 +1,36 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
+import Layout from "../layouts/Layout.astro";
+import Card from "../components/Card.astro";
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+const projects = [
+  { title: "Project 1", text: "Project discription 1" },
+  { title: "Project 2", text: "Project discription 2" },
+  { title: "Project 3", text: "Project discription 3" },
+  { title: "Project 4", text: "Project discription 4" }
+];
 ---
 
+
 <Layout>
-	<Welcome />
+
+<h1 class="text-4xl font-bold text-blue-600">
+  Мой сайт
+</h1>
+
+<div class="grid">
+
+{projects.map(project => (
+  <Card title={project.title} text={project.text} />
+))}
+
+</div>
+
 </Layout>
+
+<style>
+.grid{
+  display:grid;
+  grid-template-columns: repeat(3,1fr);
+  gap:20px;
+}
+</style>

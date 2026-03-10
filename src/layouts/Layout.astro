@@ -1,4 +1,7 @@
-<!doctype html>
+---
+import Header from "../components/Header.astro";
+---
+
 <html lang="en">
 	<head>
 		<meta charset="UTF-8" />
@@ -9,7 +12,11 @@
 		<title>Astro Basics</title>
 	</head>
 	<body>
-		<slot />
+		<Header />
+
+    		<main>
+     			 <slot />
+    		</main>
 	</body>
 </html>
 
