@@ -10,21 +10,22 @@ import "../styles/global.css";
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
 			
-				<!-- First, let's check the theme  -->
-		<script>
-			//  immediately set the class before rendering
-			const theme = localStorage.getItem("theme");
-    		if (theme === "dark") document.documentElement.classList.add("dark");
-		</script>
+    <!-- Script runs before page renders to prevent FOUC -->
+    <script>
+      // Get the saved theme from localStorage
+      const theme = localStorage.getItem("theme");
+      // If dark mode is saved, add class to <html> immediately
+      if (theme === "dark") document.documentElement.classList.add("dark");
+    </script>
 
-		<!-- minimal inline background to prevent flickering -->
-		<style>
-			html { background: #fff;  } /* light by default */
-			html.dark { background: #111; }
-		</style>
+    <!-- Inline background to prevent flash of unstyled content -->
+    <style>
+      html { background: #fff; }      /* default light background */
+      html.dark { background: #111; } /* dark background */
+    </style>
 
-		<!-- Connecting CSS Tailwind / Astro -->
-		<link rel="stylesheet" href="/styles.css">
+    <!-- Tailwind CSS -->
+    <link rel="stylesheet" href="/styles.css">
 
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<link rel="icon" href="/favicon.ico" />
