@@ -1,5 +1,8 @@
 ---
 import Header from "../components/Header.astro";
+import DarkModeToggle from "../components/DarkModeToggle.jsx";
+import "../styles/global.css";
+
 ---
 
 <html lang="en">
@@ -11,13 +14,16 @@ import Header from "../components/Header.astro";
 		<meta name="generator" content={Astro.generator} />
 		<title>Astro Basics</title>
 	</head>
-	<body>
-		<Header />
 
-    		<main>
-     			 <slot />
-    		</main>
+	<body>
+  		<Header />
+  		<DarkModeToggle client:load />
+
+  		<main>
+   		 	<slot />
+  		</main>
 	</body>
+
 </html>
 
 <style>

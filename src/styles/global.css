@@ -1,6 +1,17 @@
-@import "tailwindcss";
-img{
-  width:30px;
-  height:20px;
-  object-fit:cover;
+body.dark {
+  background-color: #111;
+  color: white;
+}
+
+body.dark a {
+  color: #8ab4ff;
+}
+
+body.dark header {
+  background: #1a1a1a;
+}
+
+body.dark .card {
+  background: #222;
+  border-color: #444;
 }
