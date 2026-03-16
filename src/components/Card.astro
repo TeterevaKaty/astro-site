@@ -11,6 +11,12 @@ const { title, text, image } = Astro.props;
 
 </div>
 
+  {Astro.slots.has('footer') && (
+    <div class="card-footer">
+      <slot name="footer" />
+    </div>
+  )}
+
 <style>
 .card{
 border:1px solid #ddd;
@@ -19,7 +25,8 @@ border-radius:10px;
 }
 
 img{
-width:100%;
-border-radius:8px;
+  width:100px;
+  height:150px;
+  object-fit:cover;
 }
 </style>

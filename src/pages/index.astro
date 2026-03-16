@@ -1,6 +1,7 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Card from "../components/Card.astro";
+import Counter from "../components/Counter.jsx";
 
 const projects = [
   { title: "Project 1", text: "Project discription 1" },
@@ -14,8 +15,10 @@ const projects = [
 <Layout>
 
 <h1 class="text-4xl font-bold text-blue-600">
-  Мой сайт
+  My site
 </h1>
+
+<Counter client:load />
 
 <div class="grid">
 

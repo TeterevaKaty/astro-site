@@ -1,1 +1,6 @@
 @import "tailwindcss";
+img{
+  width:30px;
+  height:20px;
+  object-fit:cover;
+}

@@ -11,10 +11,18 @@ const projects = [
 
 <Layout>
 
-<h1>Мои проекты</h1>
+<h1>My projects</h1>
 
 {projects.map(project => (
-  <Card title={project.title} text={project.text} image={project.image}/>
+  <Card title={project.title} text={project.text} image={project.image}>
+
+    {project.title === "Store website" && (
+      <div slot="footer">
+        <button>Buy</button>
+      </div>
+    )}
+
+  </Card>
 ))}
 
 </Layout>
