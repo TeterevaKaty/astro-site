@@ -1,11 +1,14 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Card from "../components/Card.astro";
+import FilterProjects from "../components/FilterProjects.jsx";
+import ProjectModal from "../components/ProjectModal.jsx";
+import ProjectsApp from "../components/ProjectsApp.jsx";
 
 const projects = [
-  { title: "Store website", text: "E-commerce project", image: "/images/Project1.png" },
-  { title: "Landing page", text: "Landing page for the product", image: "/images/Project1.png" },
-  { title: "Portfolio", text: "Personal website", image: "/images/Project1.png" }
+  { title: "Store website", text: "E-commerce project", category: "web", image: "/images/Project1.png" },
+  { title: "Landing page", text: "Landing page for the product", category: "design", image: "/images/Project1.png" },
+  { title: "Portfolio", text: "Personal website", category: "react", image: "/images/Project1.png" }
 ];
 ---
 
@@ -13,6 +16,12 @@ const projects = [
 
 <h1>My projects</h1>
 
+{/* <FilterProjects client:load projects={projects} />
+<ProjectModal client:load projects={projects} />*/}
+
+<ProjectsApp client:load projects={projects} />
+
+{/* Now React will render projects
 {projects.map(project => (
   <Card title={project.title} text={project.text} image={project.image}>
 
@@ -24,12 +33,39 @@ const projects = [
 
   </Card>
 ))}
+*/}
 
 </Layout>
 <style>
+
 .grid{
-  display:grid;
-  grid-template-columns: repeat(3,1fr);
-  gap:20px;
+display:grid;
+grid-template-columns: repeat(3,1fr);
+gap:20px;
 }
+
+.card{
+border:1px solid #ddd;
+padding:20px;
+cursor:pointer;
+}
+
+.modal{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.6);
+display:flex;
+align-items:center;
+justify-content:center;
+}
+
+.modal-content{
+background:white;
+padding:40px;
+max-width:400px;
+}
+
 </style>
