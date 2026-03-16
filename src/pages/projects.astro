@@ -3,9 +3,9 @@ import Layout from "../layouts/Layout.astro";
 import Card from "../components/Card.astro";
 
 const projects = [
-  { title: "Store website", text: "E-commerce project" },
-  { title: "Landing page", text: "Landing page for the product" },
-  { title: "Portfolio", text: "Personal website" }
+  { title: "Store website", text: "E-commerce project", image: "/images/Project1.png" },
+  { title: "Landing page", text: "Landing page for the product", image: "/images/Project1.png" },
+  { title: "Portfolio", text: "Personal website", image: "/images/Project1.png" }
 ];
 ---
 
@@ -14,7 +14,7 @@ const projects = [
 <h1>Мои проекты</h1>
 
 {projects.map(project => (
-  <Card title={project.title} text={project.text} />
+  <Card title={project.title} text={project.text} image={project.image}/>
 ))}
 
 </Layout>
