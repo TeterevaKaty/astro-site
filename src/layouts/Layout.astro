@@ -9,10 +9,28 @@ import "../styles/global.css";
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
+			
+				<!-- First, let's check the theme  -->
+		<script>
+			//  immediately set the class before rendering
+			const theme = localStorage.getItem("theme");
+    		if (theme === "dark") document.documentElement.classList.add("dark");
+		</script>
+
+		<!-- minimal inline background to prevent flickering -->
+		<style>
+			html { background: #fff;  } /* light by default */
+			html.dark { background: #111; }
+		</style>
+
+		<!-- Connecting CSS Tailwind / Astro -->
+		<link rel="stylesheet" href="/styles.css">
+
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<link rel="icon" href="/favicon.ico" />
 		<meta name="generator" content={Astro.generator} />
 		<title>Astro Basics</title>
+
 	</head>
 
 	<body>
