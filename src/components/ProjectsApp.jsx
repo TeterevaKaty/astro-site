@@ -12,13 +12,13 @@ export default function ProjectsApp({ projects }) {
 
   return (
     <div>
-      {/* Filter buttons */}
-      <div className="flex gap-2 mb-4">
-        <button onClick={() => setFilter("all")}>All</button>
-        <button onClick={() => setFilter("web")}>Web</button>
-        <button onClick={() => setFilter("design")}>Design</button>
-        <button onClick={() => setFilter("react")}>React</button>
-      </div>
+    {/* Filter buttons */} 
+    <div className="flex gap-2 mb-4"> 
+      <button onClick={() => setFilter("all")}>All</button> 
+      <button onClick={() => setFilter("web")}>Web</button> 
+      <button onClick={() => setFilter("design")}>Design</button> 
+      <button onClick={() => setFilter("react")}>React</button> 
+    </div>
 
       {/* Projects grid */}
       <div className="grid gap-4 sm:grid-cols-2 md:grid-cols-3">
@@ -27,6 +27,7 @@ export default function ProjectsApp({ projects }) {
             key={project.title}
             title={project.title}
             description={project.text}
+            category={project.category}
             onClick={() => setSelected(project)}
           />
         ))}

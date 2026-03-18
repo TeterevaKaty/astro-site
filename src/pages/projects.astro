@@ -19,7 +19,9 @@ const projects = [
 {/* <FilterProjects client:load projects={projects} />
 <ProjectModal client:load projects={projects} />*/}
 
-<ProjectsApp client:load projects={projects} />
+<main class="max-w-6xl mx-auto px-8 py-10">
+  <ProjectsApp client:load projects={projects} />
+</main>
 
 {/* Now React will render projects
 {projects.map(project => (

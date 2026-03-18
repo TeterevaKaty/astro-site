@@ -1,8 +1,7 @@
 ---
+import "../styles/global.css";
 import Header from "../components/Header.astro";
 import DarkModeToggle from "../components/DarkModeToggle.jsx";
-import "../styles/global.css";
-
 ---
 
 <html lang="en">
@@ -25,8 +24,6 @@ import "../styles/global.css";
     </style>
 
     <!-- Tailwind CSS -->
-    <link rel="stylesheet" href="/styles.css">
-
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<link rel="icon" href="/favicon.ico" />
 		<meta name="generator" content={Astro.generator} />
@@ -38,8 +35,8 @@ import "../styles/global.css";
   		<Header />
   		<DarkModeToggle client:load />
 
-  		<main>
-   		 	<slot />
+  		<main class="max-w-6xl mx-auto px-8 py-12 w-full">	
+			<slot />
   		</main>
 	</body>
 
