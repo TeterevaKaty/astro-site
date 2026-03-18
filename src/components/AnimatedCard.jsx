@@ -45,7 +45,7 @@ export default function AnimatedCard({ title, description, category }) {
 
         {/* Show LIKE only for portfolio */}
         {category === "design" && (
-          <LikeButton />
+          <LikeButton id={title} />
         )}
 
       </div>

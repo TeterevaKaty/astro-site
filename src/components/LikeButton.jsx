@@ -1,12 +1,33 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
-export default function LikeButton() {
-  // Track if the card is liked
+export default function LikeButton({ id }) {
+  // Track like state
   const [liked, setLiked] = useState(false);
 
-  // Toggle liked state on click
+  // Load likes from localStorage on mount
+  useEffect(() => {
+    const saved = localStorage.getItem("likes") || "[]";
+    const likes = JSON.parse(saved);
+
+    if (likes.includes(id)) {
+      setLiked(true);
+    }
+  }, [id]);
+
+  // Toggle like and save to localStorage
   const handleClick = () => {
-    setLiked(!liked);
+    const saved = localStorage.getItem("likes") || "[]";
+    let likes = JSON.parse(saved);
+
+    if (likes.includes(id)) {
+      likes = likes.filter((l) => l !== id);
+      setLiked(false);
+    } else {
+      likes.push(id);
+      setLiked(true);
+    }
+
+    localStorage.setItem("likes", JSON.stringify(likes));
   };
 
   return (
@@ -19,9 +40,7 @@ export default function LikeButton() {
         ${liked ? "bg-red-100 text-red-600" : "bg-gray-200 text-gray-800"}
       `}
     >
-      {/* Heart icon */}
       <span>{liked ? "❤️" : "🤍"}</span>
-      {/* Text */}
       <span>{liked ? "Liked" : "Like"}</span>
     </button>
   );
